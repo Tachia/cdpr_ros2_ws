@@ -11,6 +11,7 @@ Table of contents
 - Repository layout
 - Requirements (software + OS)
 - Quickstart (clone, install deps, build, run)
+- How to run (detailed: helper script, launch_all.sh, manual launch)
 - Detailed setup (WSL notes, ROS/Gazebo install)
 - Common workflows (edit → commit → push; branching & PRs)
 - Running simulations (headless vs GUI)
@@ -146,12 +147,130 @@ ros2 launch cdpr_control cdpr_simulation.launch.py
 
 ---
 
+## How to run (recommended, reproducible, and exact commands)
+
+This section shows the most reliable ways to run the simulation locally and how to prepare shells so `ros2` commands can find your packages. Use one of the two main options below: (A) use the provided launcher (launch_all.sh), or (B) use manual/ros2 launch with an explicit build + source step.
+
+Important: every new terminal session must have ROS 2 sourced and the workspace overlay sourced before ROS 2 tools see your packages.
+
+A — Recommended quick-run (single-command launcher)
+- If `launch_all.sh` is present and working, it already builds, sources and starts all components (Gazebo, ROS nodes, RViz, python visualizer). From the repo root:
+```bash
+cd ~/cdpr_ros2_ws
+./launch_all.sh
+# To stop: Ctrl+C in the terminal or follow instructions printed by launch_all.sh
+```
+- `launch_all.sh` is convenient for experiments because it encapsulates build + launch steps.
+
+B — Manual (build once, iterate, and launch with ros2)
+1. Open a terminal and source the ROS 2 distro:
+```bash
+source /opt/ros/jazzy/setup.bash
+```
+
+2. Build the whole workspace (or only the package you changed):
+```bash
+# full build
+cd ~/cdpr_ros2_ws
+colcon build --event-handlers console_direct+
+
+# or build only cdpr_control (faster during development)
+colcon build --packages-select cdpr_control --event-handlers console_direct+
+```
+
+3. Source the workspace overlay (this makes ros2 aware of local packages):
+```bash
+source ~/cdpr_ros2_ws/install/setup.bash
+```
+
+4. Verify the package is visible:
+```bash
+ros2 pkg list | grep cdpr_control
+# Should print 'cdpr_control' if the package is visible
+```
+
+5. Launch the simulation using ros2:
+```bash
+ros2 launch cdpr_control cdpr_simulation.launch.py
+```
+
+6. Useful debug commands (while things run):
+```bash
+# list topics
+ros2 topic list
+
+# echo a topic
+ros2 topic echo /platform/pose
+
+# check node graph
+ros2 node list
+
+# check where the package is located
+ros2 pkg prefix cdpr_control
+```
+
+C — Create and use a small helper script to source environment (recommended)
+Create `setup_ws.sh` at the workspace root and source it in any new terminal to quickly prepare the shell:
+
+```bash
+cat > ~/cdpr_ros2_ws/setup_ws.sh <<'EOF'
+#!/usr/bin/env bash
+# setup_ws.sh - source ROS distro and this workspace overlay
+ROS_DISTRO=jazzy
+if [ -f /opt/ros/${ROS_DISTRO}/setup.bash ]; then
+  source /opt/ros/${ROS_DISTRO}/setup.bash
+else
+  echo "Warning: /opt/ros/${ROS_DISTRO}/setup.bash not found"
+fi
+if [ -f "$(pwd)/install/setup.bash" ]; then
+  source "$(pwd)/install/setup.bash"
+else
+  echo "Workspace overlay not found. Run: colcon build"
+fi
+EOF
+chmod +x ~/cdpr_ros2_ws/setup_ws.sh
+# Use it like:
+cd ~/cdpr_ros2_ws
+source ./setup_ws.sh
+```
+
+D — Headless Gazebo run (example)
+If you want to run Gazebo without GUI (useful for CI or headless machines):
+```bash
+# start Gazebo server (headless)
+gzserver worlds/cdpr_world.sdf &
+
+# then launch ROS nodes
+ros2 launch cdpr_control cdpr_simulation.launch.py
+```
+
+E — Stopping processes
+- If launch scripts spawn multiple processes, stop using Ctrl+C (if in foreground).
+- Or kill by name if needed:
+```bash
+pkill -f gzserver
+pkill -f rviz2
+pkill -f cdpr_control   # careful: only kill your expected processes
+```
+
+F — Notes for WSL + GUI (Windows)
+- For Gazebo GUI run in WSL, install an X server on Windows (VcXsrv, X410) and set DISPLAY before launching GUI processes:
+```bash
+# on Windows start VcXsrv; in WSL:
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
+export LIBGL_ALWAYS_INDIRECT=1
+ros2 launch cdpr_control cdpr_simulation.launch.py   # will try to open Gazebo/RViz windows
+```
+- An alternative is to run Gazebo/RViz natively on a Linux VM or native Ubuntu for better performance.
+
+---
+
 ## Detailed setup notes
 
 ### WSL 2 on Windows 11
 - Use WSL2 with Ubuntu (recommended 22.04). Install WSL per Microsoft docs.
 - Install ROS 2 Jazzy in your WSL Ubuntu environment (follow ROS docs for Debian packages or binaries).
-- For Gazebo GUI on Windows: you can display GUI via an X server (VcXsrv or X410) or use a remote desktop. Many developers run Gazebo natively on Windows or run headless simulation in WSL and view results separately.
+- For Gazebo GUI on Windows: display via X server (VcXsrv / X410) or run GUI natively.
 
 ### Python virtualenv (optional, recommended for isolated Python deps)
 ```bash
@@ -208,13 +327,7 @@ git push -u origin feature/experiment-A
 
 - Headless (suitable for CI and automation):
   - Launch `gzserver` (or equivalent) and run nodes without GUI.
-  - Example:
-    ```
-    # Run Gazebo server (headless) and a ROS 2 launch
-    gzserver worlds/cdpr_world.sdf &   # or appropriate gz/gazebo cmd
-    ros2 launch cdpr_control cdpr_simulation.launch.py
-    ```
-  - Use headless mode in CI — GUI cannot run on a GitHub-hosted runner.
+  - Use headless mode in CI — GUI cannot run on GitHub-hosted runners.
 
 - GUI:
   - To view Gazebo UI, run `gzclient` (or `gz`/`ign`) locally or use an X server/remote display for WSL.
@@ -254,7 +367,6 @@ To make experiments reproducible:
   ```bash
   apt list --installed > apt-installed.txt
   ```
-- Create a small environment manifest (e.g., `env/ros_jazzy_harmonic.md`) describing OS, ROS, Gazebo, and key packages used.
 
 ---
 
@@ -269,7 +381,6 @@ For large binary assets (slam maps, recorded bags, models):
   git add .gitattributes
   git commit -m "Track large assets with Git LFS"
   ```
-- Alternatively, host very large datasets externally (S3, Zenodo, institutional storage) and link from README.
 
 ---
 
@@ -283,6 +394,15 @@ A `.devcontainer/` is recommended for contributors to get a ready dev environmen
 
 ## Troubleshooting (common issues)
 
+- "Package 'cdpr_control' not found"
+  - You must source the workspace overlay after building:
+    ```bash
+    source /opt/ros/jazzy/setup.bash
+    colcon build
+    source install/setup.bash
+    ```
+  - Or run the included `launch_all.sh` which builds and sources automatically.
+
 - "Please tell me who you are" on commit:
   ```bash
   git config --global user.name "Your Name"
@@ -291,7 +411,6 @@ A `.devcontainer/` is recommended for contributors to get a ready dev environmen
 
 - Large accidentally committed build/venv files:
   ```bash
-  # add .gitignore then:
   git rm -r --cached build install log cdpr_venv
   git add .gitignore
   git commit -m "Remove build/install/log and add .gitignore"
@@ -303,10 +422,6 @@ A `.devcontainer/` is recommended for contributors to get a ready dev environmen
     ```bash
     curl -fsSL https://packages.osrfoundation.org/gazebo.key | sudo gpg --dearmor -o /usr/share/keyrings/osrf-archive-keyring.gpg
     ```
-  - Ensure your apt source list references `signed-by=/usr/share/keyrings/osrf-archive-keyring.gpg`
-
-- CI failure due to missing system libs:
-  - Add apt install lines to the CI workflow or add the package names to package.xml so `rosdep` can resolve them.
 
 - SSH push failing with `Permission denied (publickey)`:
   - Add your SSH public key to GitHub (Settings → SSH and GPG keys)
@@ -336,7 +451,6 @@ git push -u origin feature/new-launch
 
 3. Update workflow or README locally and push:
 ```bash
-# Make changes to .github/workflows/ros2-ci.yml or README.md
 git add .github/workflows/ros2-ci.yml README.md
 git commit -m "Update CI workflow and README"
 git push
@@ -346,7 +460,6 @@ git push
 ```bash
 git tag -a v0.1.0 -m "Initial release for reproducible experiments"
 git push origin v0.1.0
-# Then create a GitHub Release from the tag via the UI or gh CLI
 ```
 
 ---
@@ -360,8 +473,6 @@ We welcome contributions. Recommended flow:
 4. Push your branch and open a Pull Request
 5. Add a clear description of the change, test results, and any instructions to reproduce
 
-Additions to documentation (README, examples, experiment descriptions) are highly valued for research reproducibility.
-
 ---
 
 ## License & citation
@@ -372,7 +483,10 @@ Example citation block to add to README:
 ```text
 If you use this repository in your research, please cite:
 Tachia M. J., Maloletov A. V., Applications of Dynamic Models for Cable-Driven Parallel Robots: A Comprehensive Review, Rus. J. Nonlin. Dyn., 2025, https://doi.org/10.20537nd251101
-M. J. Tachia and A. Maloletov, “Reinforcement Learning-Based Control for Cable Sag Compensation in Cable-Driven Parallel Robots Using Soft Actor-Critic Algorithm,” in 2025 VI International Conference on Control in Technical Systems (CTS), Saint Petersburg, Russian Federation: IEEE, Sept. 2025, pp. 171–176. doi: 10.1109/CTS67336.2025.11196696
+```
+```text
+Also cite this:
+M. J. Tachia and A. Maloletov, “Reinforcement Learning-Based Control for Cable Sag Compensation in Cable-Driven Parallel Robots Using Soft Actor-Critic Algorithm,” in 2025 VI International Conference on Control in Technical Systems (CTS), Saint Petersburg, Russian Federation: IEEE, Sept. 2025, pp. 171–176. doi: 10.1109/CTS67336.2025.1119669
 ```
 
 ---
@@ -385,8 +499,6 @@ M. J. Tachia and A. Maloletov, “Reinforcement Learning-Based Control for Cable
 ---
 
 Thank you for using this repository for your research. If you want, I can:
-- generate a CITATION.bib entry, or
-- produce a template `experiments/README.md` describing experiment protocols (input parameters, seeds, how to capture metrics), or
+- generate a CITATION.bib entry,
+- produce a template `experiments/README.md` describing experiment protocols, or
 - create a devcontainer/Dockerfile that installs ROS 2 Jazzy + Gazebo Harmonic for reproducible CI/dev.
-
-```
