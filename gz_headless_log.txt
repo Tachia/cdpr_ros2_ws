@@ -1,0 +1,56 @@
+[1;33mWarning [Utils.cc:132][0m [/sdf/world[@name="cdpr_world"]/physics[@name="default_physics"]/gravity:/home/esus_is_ord/cdpr_ros2_ws/worlds/cdpr_world_with_cables.sdf:L10]: XML Element[gravity], child of element[physics], not defined in SDF. Copying[gravity] as children of [physics].
+[1;33mWarning [Utils.cc:132][0m [/sdf/world[@name="cdpr_world"]/model[@name="frame"][@static="true"]:/home/esus_is_ord/cdpr_ros2_ws/worlds/cdpr_world_with_cables.sdf:L53]: XML Attribute[static] in element[model] not defined in SDF.
+[1;33mWarning [Utils.cc:132][0m [/sdf/world[@name="cdpr_world"]/model[@name="drum_fl"][@static="true"]:/home/esus_is_ord/cdpr_ros2_ws/worlds/cdpr_world_with_cables.sdf:L73]: XML Attribute[static] in element[model] not defined in SDF.
+[1;33mWarning [Utils.cc:132][0m [/sdf/world[@name="cdpr_world"]/model[@name="anchor_floor_fl"][@static="true"]:/home/esus_is_ord/cdpr_ros2_ws/worlds/cdpr_world_with_cables.sdf:L77]: XML Attribute[static] in element[model] not defined in SDF.
+[1;33mWarning [Utils.cc:132][0m [/sdf/world[@name="cdpr_world"]/model[@name="drum_fr"][@static="true"]:/home/esus_is_ord/cdpr_ros2_ws/worlds/cdpr_world_with_cables.sdf:L81]: XML Attribute[static] in element[model] not defined in SDF.
+[1;33mWarning [Utils.cc:132][0m [/sdf/world[@name="cdpr_world"]/model[@name="anchor_floor_fr"][@static="true"]:/home/esus_is_ord/cdpr_ros2_ws/worlds/cdpr_world_with_cables.sdf:L85]: XML Attribute[static] in element[model] not defined in SDF.
+[1;33mWarning [Utils.cc:132][0m [/sdf/world[@name="cdpr_world"]/model[@name="drum_bl"][@static="true"]:/home/esus_is_ord/cdpr_ros2_ws/worlds/cdpr_world_with_cables.sdf:L89]: XML Attribute[static] in element[model] not defined in SDF.
+[1;33mWarning [Utils.cc:132][0m [/sdf/world[@name="cdpr_world"]/model[@name="anchor_floor_bl"][@static="true"]:/home/esus_is_ord/cdpr_ros2_ws/worlds/cdpr_world_with_cables.sdf:L93]: XML Attribute[static] in element[model] not defined in SDF.
+[1;33mWarning [Utils.cc:132][0m [/sdf/world[@name="cdpr_world"]/model[@name="drum_br"][@static="true"]:/home/esus_is_ord/cdpr_ros2_ws/worlds/cdpr_world_with_cables.sdf:L97]: XML Attribute[static] in element[model] not defined in SDF.
+[1;33mWarning [Utils.cc:132][0m [/sdf/world[@name="cdpr_world"]/model[@name="anchor_floor_br"][@static="true"]:/home/esus_is_ord/cdpr_ros2_ws/worlds/cdpr_world_with_cables.sdf:L101]: XML Attribute[static] in element[model] not defined in SDF.
+[1;33mWarning [Utils.cc:132][0m [/sdf/world[@name="cdpr_world"]/model[@name="pulley_tl"][@static="true"]:/home/esus_is_ord/cdpr_ros2_ws/worlds/cdpr_world_with_cables.sdf:L106]: XML Attribute[static] in element[model] not defined in SDF.
+[1;33mWarning [Utils.cc:132][0m [/sdf/world[@name="cdpr_world"]/model[@name="pulley_tr"][@static="true"]:/home/esus_is_ord/cdpr_ros2_ws/worlds/cdpr_world_with_cables.sdf:L110]: XML Attribute[static] in element[model] not defined in SDF.
+[1;33mWarning [Utils.cc:132][0m [/sdf/world[@name="cdpr_world"]/model[@name="pulley_bl"][@static="true"]:/home/esus_is_ord/cdpr_ros2_ws/worlds/cdpr_world_with_cables.sdf:L114]: XML Attribute[static] in element[model] not defined in SDF.
+[1;33mWarning [Utils.cc:132][0m [/sdf/world[@name="cdpr_world"]/model[@name="pulley_br"][@static="true"]:/home/esus_is_ord/cdpr_ros2_ws/worlds/cdpr_world_with_cables.sdf:L118]: XML Attribute[static] in element[model] not defined in SDF.
+[1;33mWarning [Utils.cc:132][0m [/sdf/world[@name="cdpr_world"]/model[@name="cable_1"][@static="true"]:/home/esus_is_ord/cdpr_ros2_ws/worlds/cdpr_world_with_cables.sdf:L145]: XML Attribute[static] in element[model] not defined in SDF.
+[1;33mWarning [Utils.cc:132][0m [/sdf/world[@name="cdpr_world"]/model[@name="cable_2"][@static="true"]:/home/esus_is_ord/cdpr_ros2_ws/worlds/cdpr_world_with_cables.sdf:L150]: XML Attribute[static] in element[model] not defined in SDF.
+[1;33mWarning [Utils.cc:132][0m [/sdf/world[@name="cdpr_world"]/model[@name="cable_3"][@static="true"]:/home/esus_is_ord/cdpr_ros2_ws/worlds/cdpr_world_with_cables.sdf:L155]: XML Attribute[static] in element[model] not defined in SDF.
+[1;33mWarning [Utils.cc:132][0m [/sdf/world[@name="cdpr_world"]/model[@name="cable_4"][@static="true"]:/home/esus_is_ord/cdpr_ros2_ws/worlds/cdpr_world_with_cables.sdf:L160]: XML Attribute[static] in element[model] not defined in SDF.
+[1;33mWarning [Utils.cc:132][0m [/sdf/world[@name="cdpr_world"]/model[@name="cable_5"][@static="true"]:/home/esus_is_ord/cdpr_ros2_ws/worlds/cdpr_world_with_cables.sdf:L166]: XML Attribute[static] in element[model] not defined in SDF.
+[1;33mWarning [Utils.cc:132][0m [/sdf/world[@name="cdpr_world"]/model[@name="cable_6"][@static="true"]:/home/esus_is_ord/cdpr_ros2_ws/worlds/cdpr_world_with_cables.sdf:L171]: XML Attribute[static] in element[model] not defined in SDF.
+[1;33mWarning [Utils.cc:132][0m [/sdf/world[@name="cdpr_world"]/model[@name="cable_7"][@static="true"]:/home/esus_is_ord/cdpr_ros2_ws/worlds/cdpr_world_with_cables.sdf:L176]: XML Attribute[static] in element[model] not defined in SDF.
+[1;33mWarning [Utils.cc:132][0m [/sdf/world[@name="cdpr_world"]/model[@name="cable_8"][@static="true"]:/home/esus_is_ord/cdpr_ros2_ws/worlds/cdpr_world_with_cables.sdf:L181]: XML Attribute[static] in element[model] not defined in SDF.
+Stack trace (most recent call last):
+#31   Object "/lib/x86_64-linux-gnu/libruby-3.2.so.3.2", at 0x7a2eec45c2d9, in rb_yield
+#30   Object "/lib/x86_64-linux-gnu/libruby-3.2.so.3.2", at 0x7a2eec457b49, in rb_vm_exec
+#29   Object "/lib/x86_64-linux-gnu/libruby-3.2.so.3.2", at 0x7a2eec45462b, in 
+#28   Object "/lib/x86_64-linux-gnu/libruby-3.2.so.3.2", at 0x7a2eec45013e, in 
+#27   Object "/lib/x86_64-linux-gnu/libruby-3.2.so.3.2", at 0x7a2eec44d92f, in 
+#26   Object "/usr/lib/x86_64-linux-gnu/ruby/3.2.0/fiddle.so", at 0x7a2ee73b7b13, in 
+#25   Object "/lib/x86_64-linux-gnu/libruby-3.2.so.3.2", at 0x7a2eec41637b, in rb_nogvl
+#24   Object "/usr/lib/x86_64-linux-gnu/ruby/3.2.0/fiddle.so", at 0x7a2ee73b743b, in 
+#23   Object "/lib/x86_64-linux-gnu/libffi.so.8", at 0x7a2eec01b0bd, in ffi_call
+#22   Object "/lib/x86_64-linux-gnu/libffi.so.8", at 0x7a2eec0183ee, in 
+#21   Object "/lib/x86_64-linux-gnu/libffi.so.8", at 0x7a2eec01bb15, in 
+#20   Object "/opt/ros/jazzy/opt/gz_sim_vendor/lib/libgz-sim8-gz.so.8.10.0", at 0x7a2ee67a0db2, in runGui
+#19   Object "/opt/ros/jazzy/opt/gz_sim_vendor/lib/libgz-sim8-gui.so.8", at 0x7a2ee6479350, in gz::sim::v8::gui::runGui(int&, char**, char const*, char const*, int, char const*, char const*)
+#18   Object "/lib/x86_64-linux-gnu/libQt5Core.so.5", at 0x7a2ee50df3e7, in QCoreApplication::exec()
+#17   Object "/lib/x86_64-linux-gnu/libQt5Core.so.5", at 0x7a2ee50d6a7a, in QEventLoop::exec(QFlags<QEventLoop::ProcessEventsFlag>)
+#16   Object "/lib/x86_64-linux-gnu/libQt5Core.so.5", at 0x7a2ee5135278, in QEventDispatcherGlib::processEvents(QFlags<QEventLoop::ProcessEventsFlag>)
+#15   Object "/lib/x86_64-linux-gnu/libglib-2.0.so.0", at 0x7a2ee3f139d2, in g_main_context_iteration
+#14   Object "/lib/x86_64-linux-gnu/libglib-2.0.so.0", at 0x7a2ee3f73766, in 
+#13   Object "/lib/x86_64-linux-gnu/libglib-2.0.so.0", at 0x7a2ee3f14534, in 
+#12   Object "/lib/x86_64-linux-gnu/libQt5XcbQpa.so.5", at 0x7a2edc493d05, in 
+#11   Object "/lib/x86_64-linux-gnu/libQt5Gui.so.5", at 0x7a2ee3317bfb, in QWindowSystemInterface::sendWindowSystemEvents(QFlags<QEventLoop::ProcessEventsFlag>)
+#10   Object "/lib/x86_64-linux-gnu/libQt5Gui.so.5", at 0x7a2ee3346c47, in QGuiApplicationPrivate::processExposeEvent(QWindowSystemInterfacePrivate::ExposeEvent*)
+#9    Object "/lib/x86_64-linux-gnu/libQt5Core.so.5", at 0x7a2ee50d8117, in QCoreApplication::notifyInternal2(QObject*, QEvent*)
+#8    Object "/lib/x86_64-linux-gnu/libQt5Widgets.so.5", at 0x7a2ee476bd44, in QApplicationPrivate::notify_helper(QObject*, QEvent*)
+#7    Object "/lib/x86_64-linux-gnu/libQt5Gui.so.5", at 0x7a2ee3352034, in QWindow::event(QEvent*)
+#6    Object "/lib/x86_64-linux-gnu/libQt5Quick.so.5", at 0x7a2ee42377f5, in 
+#5    Object "/lib/x86_64-linux-gnu/libQt5Quick.so.5", at 0x7a2ee42367e9, in 
+#4    Object "/lib/x86_64-linux-gnu/libQt5Quick.so.5", at 0x7a2ee4280693, in QQuickWindowPrivate::syncSceneGraph()
+#3    Object "/lib/x86_64-linux-gnu/libQt5Quick.so.5", at 0x7a2ee427eaea, in QQuickWindowPrivate::updateDirtyNodes()
+#2    Object "/lib/x86_64-linux-gnu/libQt5Quick.so.5", at 0x7a2ee427e47b, in QQuickWindowPrivate::updateDirtyNode(QQuickItem*)
+#1    Object "/opt/ros/jazzy/opt/gz_gui_vendor/lib/gz-gui-8/plugins/libMinimalScene.so", at 0x7a2ebffd15da, in gz::gui::plugins::RenderWindowItem::updatePaintNode(QSGNode*, QQuickItem::UpdatePaintNodeData*)
+#0    Object "/lib/x86_64-linux-gnu/libQt5Gui.so.5", at 0x7a2ee339135e, in QOpenGLContext::doneCurrent()
+Segmentation fault (Address not mapped to object [0x8])

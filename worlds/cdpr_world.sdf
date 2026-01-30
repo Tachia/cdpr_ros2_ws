@@ -1,0 +1,42 @@
+<sdf version="1.10">
+  <world name="cdpr_world">
+
+    <physics name="default_physics" type="ode">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Ground Plane</uri>
+    </include>
+
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Sun</uri>
+    </include>
+
+    <model name="end_effector">
+      <pose>0 0 1 0 0 0</pose>
+      <link name="ee_link">
+        <inertial>
+          <mass>1.0</mass>
+        </inertial>
+        <visual name="visual">
+          <geometry>
+            <sphere><radius>0.05</radius></sphere>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere><radius>0.05</radius></sphere>
+          </geometry>
+        </collision>
+      </link>
+
+      <plugin
+        filename="libcdpr_cable_plugin.so"
+        name="cdpr::CDPRCablePlugin">
+      </plugin>
+    </model>
+
+  </world>
+</sdf>

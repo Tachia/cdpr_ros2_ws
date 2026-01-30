@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+<sdf version="1.10">
+  <world name="cdpr_world">
+
+    <!-- physics -->
+    <physics name="default_physics" type="ode">
+      <max_step_size>0.001</max_step_size>
+      <real_time_update_rate>1000</real_time_update_rate>
+      <real_time_factor>1.0</real_time_factor>
+      <gravity>0 0 -9.81</gravity>
+    </physics>
+
+    <!-- lighting -->
+    <light name="sun" type="directional">
+      <pose>0 0 10 0 -0.7 0</pose>
+      <direction>0 0 -1</direction>
+      <diffuse>1 1 1 1</diffuse>
+    </light>
+
+    <light name="fill" type="point">
+      <pose>0 0 4 0 0 0</pose>
+      <diffuse>0.95 0.9 0.85 1</diffuse>
+    </light>
+
+    <!-- ground (validated) -->
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="ground_link">
+        <visual name="ground_visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>50 50</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.9 1 1</ambient>
+            <diffuse>0.85 0.9 0.98 1</diffuse>
+          </material>
+        </visual>
+        <collision name="ground_collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>50 50</size>
+            </plane>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+    <!-- frame/pillars -->
+    <model name="frame" static="true">
+      <link name="pillar_fl"><pose>2 2 1.5 0 0 0</pose>
+        <visual name="pillar_fl_vis"><geometry><box><size>0.12 0.12 3</size></box></geometry>
+          <material><diffuse>0.45 0.45 0.5 1</diffuse></material></visual>
+      </link>
+      <link name="pillar_fr"><pose>2 -2 1.5 0 0 0</pose>
+        <visual name="pillar_fr_vis"><geometry><box><size>0.12 0.12 3</size></box></geometry>
+          <material><diffuse>0.45 0.45 0.5 1</diffuse></material></visual>
+      </link>
+      <link name="pillar_bl"><pose>-2 2 1.5 0 0 0</pose>
+        <visual name="pillar_bl_vis"><geometry><box><size>0.12 0.12 3</size></box></geometry>
+          <material><diffuse>0.45 0.45 0.5 1</diffuse></material></visual>
+      </link>
+      <link name="pillar_br"><pose>-2 -2 1.5 0 0 0</pose>
+        <visual name="pillar_br_vis"><geometry><box><size>0.12 0.12 3</size></box></geometry>
+          <material><diffuse>0.45 0.45 0.5 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <!-- drums + floor anchors (colored) -->
+    <model name="drum_fl" static="true"><link name="drum_fl_link"><pose>1.85 1.85 0.05 0 0 0</pose>
+      <visual name="drum_fl_vis"><geometry><box><size>0.35 0.20 0.08</size></box></geometry><material><diffuse>0.2 0.2 0.2 1</diffuse></material></visual>
+    </link></model>
+
+    <model name="anchor_floor_fl" static="true"><link name="anchor_floor_fl_link"><pose>2 2 0.06 0 0 0</pose>
+      <visual name="anchor_floor_fl_vis"><geometry><sphere><radius>0.06</radius></sphere></geometry><material><diffuse>0.85 0.25 0.25 1</diffuse></material></visual>
+    </link></model>
+
+    <model name="drum_fr" static="true"><link name="drum_fr_link"><pose>1.85 -1.85 0.05 0 0 0</pose>
+      <visual name="drum_fr_vis"><geometry><box><size>0.35 0.20 0.08</size></box></geometry><material><diffuse>0.2 0.2 0.2 1</diffuse></material></visual>
+    </link></model>
+
+    <model name="anchor_floor_fr" static="true"><link name="anchor_floor_fr_link"><pose>2 -2 0.06 0 0 0</pose>
+      <visual name="anchor_floor_fr_vis"><geometry><sphere><radius>0.06</radius></sphere></geometry><material><diffuse>0.85 0.25 0.25 1</diffuse></material></visual>
+    </link></model>
+
+    <model name="drum_bl" static="true"><link name="drum_bl_link"><pose>-1.85 1.85 0.05 0 0 0</pose>
+      <visual name="drum_bl_vis"><geometry><box><size>0.35 0.20 0.08</size></box></geometry><material><diffuse>0.2 0.2 0.2 1</diffuse></material></visual>
+    </link></model>
+
+    <model name="anchor_floor_bl" static="true"><link name="anchor_floor_bl_link"><pose>-2 2 0.06 0 0 0</pose>
+      <visual name="anchor_floor_bl_vis"><geometry><sphere><radius>0.06</radius></sphere></geometry><material><diffuse>0.85 0.25 0.25 1</diffuse></material></visual>
+    </link></model>
+
+    <model name="drum_br" static="true"><link name="drum_br_link"><pose>-1.85 -1.85 0.05 0 0 0</pose>
+      <visual name="drum_br_vis"><geometry><box><size>0.35 0.20 0.08</size></box></geometry><material><diffuse>0.2 0.2 0.2 1</diffuse></material></visual>
+    </link></model>
+
+    <model name="anchor_floor_br" static="true"><link name="anchor_floor_br_link"><pose>-2 -2 0.06 0 0 0</pose>
+      <visual name="anchor_floor_br_vis"><geometry><sphere><radius>0.06</radius></sphere></geometry><material><diffuse>0.85 0.25 0.25 1</diffuse></material></visual>
+    </link></model>
+
+    <!-- top pulleys (spheres) -->
+    <model name="pulley_tl" static="true"><link name="pulley_tl_link"><pose>2 2 3.05 0 0 0</pose>
+      <visual name="pul_tl_v"><geometry><sphere><radius>0.08</radius></sphere></geometry><material><diffuse>0.2 0.8 0.2 1</diffuse></material></visual>
+    </link></model>
+
+    <model name="pulley_tr" static="true"><link name="pulley_tr_link"><pose>2 -2 3.05 0 0 0</pose>
+      <visual name="pul_tr_v"><geometry><sphere><radius>0.08</radius></sphere></geometry><material><diffuse>0.2 0.8 0.2 1</diffuse></material></visual>
+    </link></model>
+
+    <model name="pulley_bl" static="true"><link name="pulley_bl_link"><pose>-2 2 3.05 0 0 0</pose>
+      <visual name="pul_bl_v"><geometry><sphere><radius>0.08</radius></sphere></geometry><material><diffuse>0.2 0.8 0.2 1</diffuse></material></visual>
+    </link></model>
+
+    <model name="pulley_br" static="true"><link name="pulley_br_link"><pose>-2 -2 3.05 0 0 0</pose>
+      <visual name="pul_br_v"><geometry><sphere><radius>0.08</radius></sphere></geometry><material><diffuse>0.2 0.8 0.2 1</diffuse></material></visual>
+    </link></model>
+
+    <!-- platform (EE) -->
+    <model name="platform">
+      <pose>0 0 1.5 0 0 0</pose>
+      <static>false</static>
+      <link name="platform_link">
+        <inertial><mass>5</mass></inertial>
+        <visual name="body_vis"><geometry><box><size>0.4 0.4 0.2</size></box></geometry><material><diffuse>0.18 0.45 0.9 1</diffuse></material></visual>
+
+        <!-- vertices: lower (L1..L4) and upper (U1..U4) -->
+        <visual name="L1"><pose> 0.20  0.20 -0.10 0 0 0</pose><geometry><sphere><radius>0.03</radius></sphere></geometry><material><diffuse>0.95 0.8 0.2 1</diffuse></material></visual>
+        <visual name="L2"><pose>-0.20  0.20 -0.10 0 0 0</pose><geometry><sphere><radius>0.03</radius></sphere></geometry><material><diffuse>0.95 0.8 0.2 1</diffuse></material></visual>
+        <visual name="L3"><pose>-0.20 -0.20 -0.10 0 0 0</pose><geometry><sphere><radius>0.03</radius></sphere></geometry><material><diffuse>0.95 0.8 0.2 1</diffuse></material></visual>
+        <visual name="L4"><pose> 0.20 -0.20 -0.10 0 0 0</pose><geometry><sphere><radius>0.03</radius></sphere></geometry><material><diffuse>0.95 0.8 0.2 1</diffuse></material></visual>
+
+        <visual name="U1"><pose> 0.20  0.20  0.10 0 0 0</pose><geometry><sphere><radius>0.03</radius></sphere></geometry><material><diffuse>0.95 0.5 0.2 1</diffuse></material></visual>
+        <visual name="U2"><pose>-0.20  0.20  0.10 0 0 0</pose><geometry><sphere><radius>0.03</radius></sphere></geometry><material><diffuse>0.95 0.5 0.2 1</diffuse></material></visual>
+        <visual name="U3"><pose>-0.20 -0.20  0.10 0 0 0</pose><geometry><sphere><radius>0.03</radius></sphere></geometry><material><diffuse>0.95 0.5 0.2 1</diffuse></material></visual>
+        <visual name="U4"><pose> 0.20 -0.20  0.10 0 0 0</pose><geometry><sphere><radius>0.03</radius></sphere></geometry><material><diffuse>0.95 0.5 0.2 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <!-- STATIC cable visuals - top pulleys --> 
+    <!-- 1: pulley_tl -> U1 (green) -->
+    <model name="cable_1" static="true"><link name="c1"><pose>1.100000 1.100000 2.325000 2.248916 -0.661651 -1.244997</pose>
+      <visual name="c1_vis"><geometry><cylinder><radius>0.0065</radius><length>2.81959</length></cylinder></geometry><material><diffuse>0.05 0.75 0.05 1</diffuse></material></visual>
+    </link></model>
+
+    <!-- 2: pulley_tr -> U2 (cyan) -->
+    <model name="cable_2" static="true"><link name="c2"><pose>0.900000 -0.900000 2.325000 -2.153536 -0.695696 1.185085</pose>
+      <visual name="c2_vis"><geometry><cylinder><radius>0.0065</radius><length>3.322565</length></cylinder></geometry><material><diffuse>0.1 0.6 0.9 1</diffuse></material></visual>
+    </link></model>
+
+    <!-- 3: pulley_bl -> U3 (magenta) -->
+    <model name="cable_3" static="true"><link name="c3"><pose>-1.100000 0.900000 2.325000 2.153536 0.599326 1.041678</pose>
+      <visual name="c3_vis"><geometry><cylinder><radius>0.0065</radius><length>3.081003</length></cylinder></geometry><material><diffuse>0.8 0.2 0.7 1</diffuse></material></visual>
+    </link></model>
+
+    <!-- 4: pulley_br -> U4 (orange) -->
+    <model name="cable_4" static="true"><link name="c4"><pose>-0.900000 -1.100000 2.325000 -2.248916 0.661651 -1.896644</pose>
+      <visual name="c4_vis"><geometry><cylinder><radius>0.0065</radius><length>3.081003</length></cylinder></geometry><material><diffuse>0.95 0.5 0.05 1</diffuse></material></visual>
+    </link></model>
+
+    <!-- bottom cables -->
+    <!-- 5: anchor_floor_fl -> L1 (blue) -->
+    <model name="cable_5" static="true"><link name="c5"><pose>1.100000 1.100000 0.725000 2.159594 -0.705841 0.785398</pose>
+      <visual name="c5_vis"><geometry><cylinder><radius>0.0065</radius><length>3.061000</length></cylinder></geometry><material><diffuse>0.05 0.25 0.95 1</diffuse></material></visual>
+    </link></model>
+
+    <!-- 6: anchor_floor_fr -> L2 (yellow) -->
+    <model name="cable_6" static="true"><link name="c6"><pose>0.900000 -0.900000 0.725000 -1.020410 -0.705841 0.406574</pose>
+      <visual name="c6_vis"><geometry><cylinder><radius>0.0065</radius><length>3.301534</length></cylinder></geometry><material><diffuse>0.95 0.9 0.1 1</diffuse></material></visual>
+    </link></model>
+
+    <!-- 7: anchor_floor_bl -> L3 (purple) -->
+    <model name="cable_7" static="true"><link name="c7"><pose>-1.100000 0.900000 0.725000 1.020410 0.608949 0.348161</pose>
+      <visual name="c7_vis"><geometry><cylinder><radius>0.0065</radius><length>3.056824</length></cylinder></geometry><material><diffuse>0.6 0.2 0.7 1</diffuse></material></visual>
+    </link></model>
+
+    <!-- 8: anchor_floor_br -> L4 (red) -->
+    <model name="cable_8" static="true"><link name="c8"><pose>-0.900000 -1.100000 0.725000 -0.927295 0.774163 -0.402139</pose>
+      <visual name="c8_vis"><geometry><cylinder><radius>0.0065</radius><length>3.056824</length></cylinder></geometry><material><diffuse>0.9 0.15 0.15 1</diffuse></material></visual>
+    </link></model>
+
+  </world>
+</sdf>

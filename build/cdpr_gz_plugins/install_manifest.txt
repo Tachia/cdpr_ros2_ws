@@ -1,0 +1,16 @@
+/home/esus_is_ord/cdpr_ros2_ws/install/cdpr_gz_plugins/lib/libcdpr_cable_plugin.so
+/home/esus_is_ord/cdpr_ros2_ws/install/cdpr_gz_plugins/share/ament_index/resource_index/package_run_dependencies/cdpr_gz_plugins
+/home/esus_is_ord/cdpr_ros2_ws/install/cdpr_gz_plugins/share/ament_index/resource_index/parent_prefix_path/cdpr_gz_plugins
+/home/esus_is_ord/cdpr_ros2_ws/install/cdpr_gz_plugins/share/cdpr_gz_plugins/environment/ament_prefix_path.sh
+/home/esus_is_ord/cdpr_ros2_ws/install/cdpr_gz_plugins/share/cdpr_gz_plugins/environment/ament_prefix_path.dsv
+/home/esus_is_ord/cdpr_ros2_ws/install/cdpr_gz_plugins/share/cdpr_gz_plugins/environment/path.sh
+/home/esus_is_ord/cdpr_ros2_ws/install/cdpr_gz_plugins/share/cdpr_gz_plugins/environment/path.dsv
+/home/esus_is_ord/cdpr_ros2_ws/install/cdpr_gz_plugins/share/cdpr_gz_plugins/local_setup.bash
+/home/esus_is_ord/cdpr_ros2_ws/install/cdpr_gz_plugins/share/cdpr_gz_plugins/local_setup.sh
+/home/esus_is_ord/cdpr_ros2_ws/install/cdpr_gz_plugins/share/cdpr_gz_plugins/local_setup.zsh
+/home/esus_is_ord/cdpr_ros2_ws/install/cdpr_gz_plugins/share/cdpr_gz_plugins/local_setup.dsv
+/home/esus_is_ord/cdpr_ros2_ws/install/cdpr_gz_plugins/share/cdpr_gz_plugins/package.dsv
+/home/esus_is_ord/cdpr_ros2_ws/install/cdpr_gz_plugins/share/ament_index/resource_index/packages/cdpr_gz_plugins
+/home/esus_is_ord/cdpr_ros2_ws/install/cdpr_gz_plugins/share/cdpr_gz_plugins/cmake/cdpr_gz_pluginsConfig.cmake
+/home/esus_is_ord/cdpr_ros2_ws/install/cdpr_gz_plugins/share/cdpr_gz_plugins/cmake/cdpr_gz_pluginsConfig-version.cmake
+/home/esus_is_ord/cdpr_ros2_ws/install/cdpr_gz_plugins/share/cdpr_gz_plugins/package.xml

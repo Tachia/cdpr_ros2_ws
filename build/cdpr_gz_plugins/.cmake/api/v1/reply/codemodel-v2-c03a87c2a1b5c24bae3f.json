@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-4ef6923190c7342ddb80.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10.2"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "cdpr_gz_plugins",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "cdpr_cable_plugin::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cdpr_cable_plugin-f0c1bf8ea9f04e93ac4d.json",
+					"name" : "cdpr_cable_plugin",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cdpr_gz_plugins_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cdpr_gz_plugins_uninstall-e568a7b51afb3582595c.json",
+					"name" : "cdpr_gz_plugins_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-d1407d18ffd8c44f5bb0.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/esus_is_ord/cdpr_ros2_ws/build/cdpr_gz_plugins",
+		"source" : "/home/esus_is_ord/cdpr_ros2_ws/src/cdpr_gz_plugins"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

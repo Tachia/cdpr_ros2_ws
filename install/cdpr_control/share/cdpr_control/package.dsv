@@ -1,0 +1,8 @@
+source;share/cdpr_control/hook/cmake_prefix_path.ps1
+source;share/cdpr_control/hook/cmake_prefix_path.dsv
+source;share/cdpr_control/hook/cmake_prefix_path.sh
+source;share/cdpr_control/local_setup.bash
+source;share/cdpr_control/local_setup.dsv
+source;share/cdpr_control/local_setup.ps1
+source;share/cdpr_control/local_setup.sh
+source;share/cdpr_control/local_setup.zsh

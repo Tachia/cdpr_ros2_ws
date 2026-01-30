@@ -1,0 +1,15 @@
+/home/esus_is_ord/cdpr_ros2_ws/install/cdpr_description/share/ament_index/resource_index/package_run_dependencies/cdpr_description
+/home/esus_is_ord/cdpr_ros2_ws/install/cdpr_description/share/ament_index/resource_index/parent_prefix_path/cdpr_description
+/home/esus_is_ord/cdpr_ros2_ws/install/cdpr_description/share/cdpr_description/environment/ament_prefix_path.sh
+/home/esus_is_ord/cdpr_ros2_ws/install/cdpr_description/share/cdpr_description/environment/ament_prefix_path.dsv
+/home/esus_is_ord/cdpr_ros2_ws/install/cdpr_description/share/cdpr_description/environment/path.sh
+/home/esus_is_ord/cdpr_ros2_ws/install/cdpr_description/share/cdpr_description/environment/path.dsv
+/home/esus_is_ord/cdpr_ros2_ws/install/cdpr_description/share/cdpr_description/local_setup.bash
+/home/esus_is_ord/cdpr_ros2_ws/install/cdpr_description/share/cdpr_description/local_setup.sh
+/home/esus_is_ord/cdpr_ros2_ws/install/cdpr_description/share/cdpr_description/local_setup.zsh
+/home/esus_is_ord/cdpr_ros2_ws/install/cdpr_description/share/cdpr_description/local_setup.dsv
+/home/esus_is_ord/cdpr_ros2_ws/install/cdpr_description/share/cdpr_description/package.dsv
+/home/esus_is_ord/cdpr_ros2_ws/install/cdpr_description/share/ament_index/resource_index/packages/cdpr_description
+/home/esus_is_ord/cdpr_ros2_ws/install/cdpr_description/share/cdpr_description/cmake/cdpr_descriptionConfig.cmake
+/home/esus_is_ord/cdpr_ros2_ws/install/cdpr_description/share/cdpr_description/cmake/cdpr_descriptionConfig-version.cmake
+/home/esus_is_ord/cdpr_ros2_ws/install/cdpr_description/share/cdpr_description/package.xml
