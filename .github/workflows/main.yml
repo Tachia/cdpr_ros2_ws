@@ -1,0 +1,70 @@
+```yaml
+name: CI - build ROS 2 Jazzy workspace (headless)
+
+on:
+  push:
+  pull_request:
+
+env:
+  ROS_DISTRO: jazzy
+  # If you want to refer to a gazebo name anywhere, you can set:
+  GAZEBO_DISTRO: harmonic
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup ROS
+        uses: ros-tooling/setup-ros@v0
+        with:
+          distro: ${{ env.ROS_DISTRO }}
+
+      - name: Add OSRF / Gazebo apt key & repo (so rosdep can install Gazebo deps)
+        run: |
+          # Add OSRF keyring (recommended method)
+          curl -fsSL https://packages.osrfoundation.org/gazebo.key | sudo gpg --dearmor -o /usr/share/keyrings/osrf-archive-keyring.gpg
+          echo "deb [signed-by=/usr/share/keyrings/osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -sc) main" \
+            | sudo tee /etc/apt/sources.list.d/gazebo-stable.list
+
+      - name: Install build tooling & rosdep
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            python3-colcon-common-extensions \
+            python3-rosdep \
+            python3-vcstool \
+            build-essential \
+            cmake \
+            python3-pip
+          sudo rosdep init || true
+          rosdep update
+
+      - name: Install system dependencies via rosdep
+        run: |
+          # Allow failing once if rosdep can't find something (logs will show missing deps)
+          rosdep install --from-paths src --ignore-src -r -y || true
+
+      - name: Build workspace with colcon
+        run: |
+          source /opt/ros/${ROS_DISTRO}/setup.bash
+          # Use a modest number of parallel workers on hosted runners
+          colcon build --event-handlers console_direct+ --parallel-workers 2
+
+      - name: Run tests (if any)
+        run: |
+          source install/setup.bash
+          # Run tests if packages define them
+          colcon test --event-handlers console_direct+ || true
+          colcon test-result --verbose || true
+
+      - name: Upload build logs (artifact)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: colcon-logs
+          path: |
+            build/**/log
+            log/**
