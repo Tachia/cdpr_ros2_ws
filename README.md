@@ -371,14 +371,15 @@ Choose and include an OSI-approved license in `LICENSE` (e.g., MIT, Apache-2.0).
 Example citation block to add to README:
 ```text
 If you use this repository in your research, please cite:
-Author(s), "Title", Conference/Journal, Year. DOI:xxxxx
+Tachia M. J., Maloletov A. V., Applications of Dynamic Models for Cable-Driven Parallel Robots: A Comprehensive Review, Rus. J. Nonlin. Dyn., 2025, https://doi.org/10.20537nd251101
+M. J. Tachia and A. Maloletov, “Reinforcement Learning-Based Control for Cable Sag Compensation in Cable-Driven Parallel Robots Using Soft Actor-Critic Algorithm,” in 2025 VI International Conference on Control in Technical Systems (CTS), Saint Petersburg, Russian Federation: IEEE, Sept. 2025, pp. 171–176. doi: 10.1109/CTS67336.2025.11196696
 ```
 
 ---
 
 ## Contact & acknowledgements
 
-- Maintainer: Your Name — your.email@example.com
+- Maintainer: Mfeuter Joseph Tachia — tachiajoseph3@gmail.com
 - Acknowledgements: List funding sources, collaborators, libraries and toolkits used (ROS 2, Gazebo, etc.)
 
 ---
