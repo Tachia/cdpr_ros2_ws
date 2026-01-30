@@ -1,7 +1,0 @@
-[01m[K/home/esus_is_ord/cdpr_ros2_ws/src/cdpr_control/src/cdpr_controller.cpp:6:10:[m[K [01;31m[Kfatal error: [m[KEigen/Dense: No such file or directory
-    6 | #include [01;31m[K<Eigen/Dense>[m[K
-      |          [01;31m[K^~~~~~~~~~~~~[m[K
-compilation terminated.
-gmake[2]: *** [CMakeFiles/cdpr_controller.dir/build.make:76: CMakeFiles/cdpr_controller.dir/src/cdpr_controller.cpp.o] Error 1
-gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/cdpr_controller.dir/all] Error 2
-gmake: *** [Makefile:146: all] Error 2

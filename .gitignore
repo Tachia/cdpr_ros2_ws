@@ -1,0 +1,31 @@
+# colcon/ROS build artifacts
+build/
+install/
+log/
+*.log
+
+# Python virtual envs
+cdpr_venv/
+venv/
+.env/
+.pyenv/
+*.pyc
+__pycache__/
+
+# editor/IDE
+.vscode/
+.idea/
+*.swp
+
+# system
+.DS_Store
+thumbs.db
+
+# large assets (track via LFS if needed)
+*.bag
+*.pcd
+*.db
+*.tar.gz
+
+# optional: ignore local-only files
+*.local

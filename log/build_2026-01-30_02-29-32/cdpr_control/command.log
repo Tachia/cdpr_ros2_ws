@@ -1,4 +1,0 @@
-Invoking command in '/home/esus_is_ord/cdpr_ros2_ws/build/cdpr_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake /home/esus_is_ord/cdpr_ros2_ws/src/cdpr_control -DCMAKE_INSTALL_PREFIX=/home/esus_is_ord/cdpr_ros2_ws/install/cdpr_control
-Invoked command in '/home/esus_is_ord/cdpr_ros2_ws/build/cdpr_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake /home/esus_is_ord/cdpr_ros2_ws/src/cdpr_control -DCMAKE_INSTALL_PREFIX=/home/esus_is_ord/cdpr_ros2_ws/install/cdpr_control
-Invoking command in '/home/esus_is_ord/cdpr_ros2_ws/build/cdpr_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/esus_is_ord/cdpr_ros2_ws/build/cdpr_control -- -j12 -l12
-Invoked command in '/home/esus_is_ord/cdpr_ros2_ws/build/cdpr_control' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/esus_is_ord/cdpr_ros2_ws/build/cdpr_control -- -j12 -l12
